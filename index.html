@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" style="padding: 0; margin: 0; width: 100%; height: 100%;">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Jogue agora</title>
+
+   <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+   <!-- Jquery -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+   <script src="./app.js"></script>
+
+   <style>
+      .borda-direita {
+         border-right: 3px solid #000;
+      }
+
+      .borda-esquerda {
+         border-left: 3px solid #000;
+      }
+
+      .borda-inferior {
+         border-bottom: 3px solid #000;
+      }
+   </style>
+
+</head>
+
+<body class="row col-md-12 d-flex justify-content-center" style="height: 100%;">
+
+   <div class="container row col-md-9 d-flex justify-content-center align-itens-center"
+      style="margin-top: 50px; margin-bottom: 50px;">
+      <div class="row col-md-12 d-flex justify-content-center">
+         <div id="um" class="col-md-3  borda-inferior" onclick="marcarQuadrante('1')">1</div>
+         <div id="dois" class="col-md-3 borda-esquerda borda-inferior" onclick="marcarQuadrante('2')">2</div>
+         <div id="tres" class="col-md-3 borda-esquerda  borda-inferior" onclick="marcarQuadrante('3')">3</div>
+      </div>
+      <div class="row col-md-12 d-flex justify-content-center">
+         <div id="quatro" class="col-md-3  borda-inferior" onclick="marcarQuadrante('4')">1</div>
+         <div id="cinco" class="col-md-3 borda-esquerda borda-inferior" onclick="marcarQuadrante('5')">2</div>
+         <div id="seis" class="col-md-3 borda-esquerda  borda-inferior" onclick="marcarQuadrante('6')">3</div>
+      </div>
+      <div class=" row col-md-12 d-flex justify-content-center">
+         <div id="sete" class="col-md-3" onclick="marcarQuadrante('7')">1</div>
+         <div id="oito" class="col-md-3 borda-esquerda" onclick="marcarQuadrante('8')">2</div>
+         <div id="nove" class="col-md-3 borda-esquerda " onclick="marcarQuadrante('9')">3</div>
+      </div>
+   </div>
+
+
+   <div hidden>
+      <div id="X">
+         <img src="./img/x.png" width="100" height="100">
+      </div>
+      <div id="O">
+         <img src="./img/O.jpg" width="100" height="100">
+      </div>
+   </div>
+
+
+
+
+
+
+
+   <!-- Boostrap -->
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+      integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>
