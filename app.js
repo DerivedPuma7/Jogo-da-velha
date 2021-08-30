@@ -8,7 +8,7 @@ const quadrante7 = $('#sete');
 const quadrante8 = $('#oito');
 const quadrante9 = $('#nove');
 
-var sequencia = [];
+const sequencia = [];
 
 const validador = {
    row1: {
@@ -30,7 +30,7 @@ const validador = {
 
 
 function marcarQuadrante(posicao) {
-   inicializaVariaveis();
+   // inicializaVariaveis();
    let renderDiv = verificaPosicao(posicao); //identifica a div que será renderizado o 'X' ou a 'O'
    let bolinhaOuX = verificarSequencia(sequencia); //identifica se é pra renderizar um 'X' ou uma 'O'
    let row = verificaRow(posicao); //identifica qual a row do obj 'validador' será trocado o valor
