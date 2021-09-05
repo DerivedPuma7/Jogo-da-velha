@@ -1,16 +1,17 @@
-const quadrante1 = $('#um');
-const quadrante2 = $('#dois');
-const quadrante3 = $('#tres');
-const quadrante4 = $('#quatro');
-const quadrante5 = $('#cinco');
-const quadrante6 = $('#seis');
-const quadrante7 = $('#sete');
-const quadrante8 = $('#oito');
-const quadrante9 = $('#nove');
+quadrante1 = $('#um');
+quadrante2 = $('#dois');
+quadrante3 = $('#tres');
+quadrante4 = $('#quatro');
+quadrante5 = $('#cinco');
+quadrante6 = $('#seis');
+quadrante7 = $('#sete');
+quadrante8 = $('#oito');
+quadrante9 = $('#nove');
 
-const sequencia = [];
+sequencia = [];
+historicoDeJogadas = [];
 
-const validador = {
+validador = {
    row1: {
       1: '1',
       2: '2',
@@ -30,10 +31,16 @@ const validador = {
 
 
 function marcarQuadrante(posicao) {
-   // inicializaVariaveis();
    let renderDiv = verificaPosicao(posicao); //identifica a div que será renderizado o 'X' ou a 'O'
-   let bolinhaOuX = verificarSequencia(sequencia); //identifica se é pra renderizar um 'X' ou uma 'O'
+   // let bolinhaOuX = verificarSequencia(); //identifica se é pra renderizar um 'X' ou uma 'O'
+   let bolinhaOuX = 'x';
    let row = verificaRow(posicao); //identifica qual a row do obj 'validador' será trocado o valor
+
+   jogadaValida = verificaHistoricoJogadas(posicao);
+   if (!jogadaValida) {
+      alert('Jogada Inválida');
+      return;
+   }
 
    alterarHTML(renderDiv, bolinhaOuX); // renderiza o 'X' ou a 'O' no quadrante correto
    sequencia.push(bolinhaOuX); //adiciona na última posição o 'X' ou a 'O'
@@ -42,10 +49,10 @@ function marcarQuadrante(posicao) {
    let fimJogo = verificarVitoria(); //verifica se ocorreu fim de jogo
 
    if (fimJogo) {
-      alert('vitoria do: ' + bolinhaOuX);
+      terminarJogo(bolinhaOuX);
    }
-   if (sequencia.length == 9) {
-      alert('Empate');
+   if (!fimJogo && sequencia.length == 9) {
+      empate();
    }
 }
 
@@ -79,7 +86,7 @@ function verificaPosicao(posicao) {
    }
 }
 
-function verificarSequencia(sequencia) {
+function verificarSequencia() {
    tamanho = sequencia.lenght;
    if (tamanho == 0) {
       return 'x'; //caso seja a primeira jogada
@@ -144,9 +151,56 @@ function alterarHTML(renderDiv, bolinhaOuX) {
    let divO = $('#O');
 
    if (bolinhaOuX == 'x') {
-      $(renderDiv).html(divX);
+      // $(renderDiv).html(divX);
+      $(renderDiv).html('x');
+      // $(renderDiv).css('background: url(img/x.png) no-repeat center;');
    }
    else {
-      $(renderDiv).html(divO);
+      // $(renderDiv).html(divO);
+      $(renderDiv).html('o');
+      // $(renderDiv).css('background: url(img/O.jpg) no-repeat center;');
    }
+}
+
+function verificaHistoricoJogadas(posicao) {
+   if (historicoDeJogadas.indexOf(posicao) != -1) {
+      return false;
+   }
+   else {
+      historicoDeJogadas.push(posicao);
+      return true;
+   }
+}
+
+function terminarJogo(vencedor) {
+   let title = 'Parabéns, vitória do ' + vencedor;
+   let icon = 'success';
+   let textoConfirmacao = 'Reiniciar';
+   let textoCancelamento = 'Sair';
+
+   exibirAlertas(title, icon, true, textoConfirmacao, textoCancelamento);
+}
+
+function empate() {
+   let title = 'Empate';
+   let icon = 'warning';
+   let textoConfirmacao = 'Reiniciar';
+   let textoCancelamento = 'Sair';
+
+   exibirAlertas(title, icon, true, textoConfirmacao, textoCancelamento);
+}
+
+function exibirAlertas(title, icon, showDenyButton = false, confirmButtonText, denyButtonText = '') {
+   Swal.fire({
+      title,
+      icon,
+      showDenyButton,
+      confirmButtonText,
+      denyButtonText,
+   })
+      .then((result) => {
+         if (result.isConfirmed) {
+            location.reload();
+         }
+      })
 }

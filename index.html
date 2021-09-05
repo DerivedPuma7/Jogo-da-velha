@@ -15,7 +15,14 @@
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+   <!-- Sweet Alert -->
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
    <style>
+      body {
+         background-image: url(img/akatsuki.png);
+      }
+
       .borda-direita {
          border-right: 3px solid #000;
       }
@@ -36,19 +43,19 @@
    <div class="container row col-md-9 d-flex justify-content-center align-itens-center"
       style="margin-top: 50px; margin-bottom: 50px;">
       <div class="row col-md-12 d-flex justify-content-center">
-         <div id="um" class="col-md-3  borda-inferior" onclick="marcarQuadrante('1')">1</div>
-         <div id="dois" class="col-md-3 borda-esquerda borda-inferior" onclick="marcarQuadrante('2')">2</div>
-         <div id="tres" class="col-md-3 borda-esquerda  borda-inferior" onclick="marcarQuadrante('3')">3</div>
+         <div id="um" class="col-md-3  borda-inferior" onclick="marcarQuadrante('1')"></div>
+         <div id="dois" class="col-md-3 borda-esquerda borda-inferior" onclick="marcarQuadrante('2')"></div>
+         <div id="tres" class="col-md-3 borda-esquerda  borda-inferior" onclick="marcarQuadrante('3')"></div>
       </div>
       <div class="row col-md-12 d-flex justify-content-center">
-         <div id="quatro" class="col-md-3  borda-inferior" onclick="marcarQuadrante('4')">1</div>
-         <div id="cinco" class="col-md-3 borda-esquerda borda-inferior" onclick="marcarQuadrante('5')">2</div>
-         <div id="seis" class="col-md-3 borda-esquerda  borda-inferior" onclick="marcarQuadrante('6')">3</div>
+         <div id="quatro" class="col-md-3  borda-inferior" onclick="marcarQuadrante('4')"></div>
+         <div id="cinco" class="col-md-3 borda-esquerda borda-inferior" onclick="marcarQuadrante('5')"></div>
+         <div id="seis" class="col-md-3 borda-esquerda  borda-inferior" onclick="marcarQuadrante('6')"></div>
       </div>
       <div class=" row col-md-12 d-flex justify-content-center">
-         <div id="sete" class="col-md-3" onclick="marcarQuadrante('7')">1</div>
-         <div id="oito" class="col-md-3 borda-esquerda" onclick="marcarQuadrante('8')">2</div>
-         <div id="nove" class="col-md-3 borda-esquerda " onclick="marcarQuadrante('9')">3</div>
+         <div id="sete" class="col-md-3" onclick="marcarQuadrante('7')"></div>
+         <div id="oito" class="col-md-3 borda-esquerda" onclick="marcarQuadrante('8')"></div>
+         <div id="nove" class="col-md-3 borda-esquerda " onclick="marcarQuadrante('9')"></div>
       </div>
    </div>
 
@@ -62,7 +69,26 @@
       </div>
    </div>
 
-
+   <!-- MODAL DE FIM DE JOGO -->
+   <div class="modal fade" id="modal_fim_jogo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="titulo_modal_fim_jogo"></h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               ...
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+         </div>
+      </div>
+   </div>
 
 
 
