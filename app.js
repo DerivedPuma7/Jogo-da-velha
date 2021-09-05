@@ -32,8 +32,8 @@ validador = {
 
 function marcarQuadrante(posicao) {
    let renderDiv = verificaPosicao(posicao); //identifica a div que será renderizado o 'X' ou a 'O'
-   // let bolinhaOuX = verificarSequencia(); //identifica se é pra renderizar um 'X' ou uma 'O'
-   let bolinhaOuX = 'x';
+   let bolinhaOuX = verificarSequencia(); //identifica se é pra renderizar um 'X' ou uma 'O'
+   // let bolinhaOuX = 'x';
    let row = verificaRow(posicao); //identifica qual a row do obj 'validador' será trocado o valor
 
    jogadaValida = verificaHistoricoJogadas(posicao);
@@ -87,14 +87,14 @@ function verificaPosicao(posicao) {
 }
 
 function verificarSequencia() {
-   tamanho = sequencia.lenght;
+   tamanho = sequencia.length;
    if (tamanho == 0) {
       return 'x'; //caso seja a primeira jogada
    }
-   else if (sequencia[tamanho] == 'x') {
+   else if (sequencia[tamanho - 1] == 'x') {
       return 'o'; //se a ultima jogada foi x
    }
-   else if (sequencia[tamanho] == 'o') {
+   else if (sequencia[tamanho - 1] == 'o') {
       return 'x'; //se a ultima jogada foi o
    }
 
@@ -152,13 +152,13 @@ function alterarHTML(renderDiv, bolinhaOuX) {
 
    if (bolinhaOuX == 'x') {
       // $(renderDiv).html(divX);
-      $(renderDiv).html('x');
-      // $(renderDiv).css('background: url(img/x.png) no-repeat center;');
+      $(renderDiv).html('<h1>X<h1>');
+      // $(renderDiv).css('background-image', 'url(img/x.png)');
    }
    else {
       // $(renderDiv).html(divO);
-      $(renderDiv).html('o');
-      // $(renderDiv).css('background: url(img/O.jpg) no-repeat center;');
+      $(renderDiv).html('<h1>O<h1>');
+      // $(renderDiv).css('background-image', 'url(img/O.jpg)');
    }
 }
 
