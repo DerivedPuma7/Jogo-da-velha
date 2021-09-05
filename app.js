@@ -33,7 +33,6 @@ validador = {
 function marcarQuadrante(posicao) {
    let renderDiv = verificaPosicao(posicao); //identifica a div que será renderizado o 'X' ou a 'O'
    let bolinhaOuX = verificarSequencia(); //identifica se é pra renderizar um 'X' ou uma 'O'
-   // let bolinhaOuX = 'x';
    let row = verificaRow(posicao); //identifica qual a row do obj 'validador' será trocado o valor
 
    jogadaValida = verificaHistoricoJogadas(posicao);
